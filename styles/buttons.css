@@ -1,27 +1,23 @@
-.btn {
-  --btn-bg-color: var(--txt-color-1);
-  --btn-color: var(--bg-color);
+.btn-1 {
   border: 0;
-  background-color: transparent;
+  border-radius: .5rem;
+  /* background-color: transparent; */
+  background: var(--txt-color-1);
+  font: var(--fw-md) var(--fs-base)/1.5rem var(--ff-sans);
+  color: var(--bg-color);
+  cursor: pointer;
+  
+}
 
+.btn-1:hover {
+  background: linear-gradient(90deg, var(--brand-color-2) 0%, var(--brand-color-1) 100%);
+  color: var(--surf-color);
+}
+.flex {
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-
-  border-radius: .5rem;
-
-  font: var(--fw-md) var(--fs-base)/1.5rem var(--ff-sans);
-
-  cursor: pointer;
-
-  background: var(--btn-bg-color);
-  color: var(--btn-color);
-}
-
-.btn:hover {
-  --btn-bg-color: linear-gradient(90deg, var(--brand-color-2) 0%, var(--brand-color-1) 100%);
-  --btn-color: var(--surf-color);
 }
 
 .btn-sm {
@@ -38,22 +34,36 @@
   padding: 1rem 2rem;
   font-size: 1.125rem;
 }
-.btn[aria-label] {
+
+.btn-2 {
   position: relative;
-  &::before {
+  background: transparent;
+  border: none;
+  color: var(--txt-color-1);
+  border-radius: .5rem;
+  cursor: pointer;
+
+  &::before { /* BORDA FALSA */
     content: "";
     position: absolute;
+    inset: 0;
+    padding: .09375rem;
     border-radius: inherit;
-    inset: .09375rem;
-    background-color: var(--bg-color);
+    background: var(--txt-color-1);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
-  &::after {
-    content: attr(aria-label);
-    background: var(--btn-bg-color);
+
+  &:hover { /* HOVER — TEXTO COM GRADIENTE */
+    background-image: linear-gradient(90deg, var(--brand-color-2) 0%, var(--brand-color-1) 100%);
+    background-clip: text; /* Faz o fundo aparecer apenas no texto */
     -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    position: relative;
-    z-index: 1;
+    color: transparent; /* Texto fica transparente para revelar o gradiente */
+    
+  }
+  
+  &:hover::before { /* HOVER — BORDA COM GRADIENTE */
+    background: linear-gradient(90deg, var(--brand-color-2) 0%, var(--brand-color-1) 100%);
   }
 }
