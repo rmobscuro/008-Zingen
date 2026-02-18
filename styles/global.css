@@ -75,6 +75,14 @@
     color: inherit;
   }
 
+  a:hover {
+    background: linear-gradient(90deg, var(--brand-color-2) 0%, var(--brand-color-1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+  }
+
   ul[role="list"] {
     list-style: none;
   }
