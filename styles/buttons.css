@@ -41,6 +41,11 @@
   color: var(--txt-color-1);
   border-radius: .5rem;
   cursor: pointer;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
 
   &::before { /* BORDA FALSA */
     content: "";
